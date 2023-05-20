@@ -1,49 +1,39 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import CardImage from "../components/CardImage";
-import { TextField } from "@mui/material";
+import { TextField, Alert,AlertTitle } from "@mui/material";
 
-export default function Recipe() {
-  const url = "https://www.themealdb.com/api/json/v1/1/search.php?s=";
-  const [Meals, setMeals] = useState([]);
-  const [loading, setLoading]=useState(true)
-
-
-  useEffect(()=>{
-    fetch(url)
-    .then((response)=>response.json()
-    .then((data)=>{
-     setLoading(false)
-     setMeals(data.meals)
-      
-    }))
-  },[])
-  
-  
+export default function Recipe({  handleFavoriteClick, favorites,userInput, handleSearch ,filter }) {
   return (
     <div>
-      <TextField id="outlined-basic" label="Outlined" variant="outlined" />
+      <h1 className="text-3xl font-bold m-4">Recipe List</h1>
+      <TextField
+        id="outlined-basic"
+        label="search your recipe"
+        variant="outlined"
+        value={userInput}
+        onChange={handleSearch}
+      />
       <div>
-        {loading ? (
-          <p>loading...</p>
+        {filter.length === 0 ? (
+          <Alert severity="info" className="flex justify-center ">
+            <AlertTitle>Info</AlertTitle>
+            Sorry we have not got this recipe yet !
+            <strong>check it out later!</strong>
+          </Alert>
         ) : (
-          <div className="grid grid-cols-4 ">
-            {Meals ? (
-              Meals.map((meal) => {
-                return <CardImage meal={meal} key={meal.idMeal} />;
-              })
-            ) : (
-              <div>no data</div>
-            )}
+          <div className="grid grid-cols-4 gap-4">
+            {filter.map((recipe) => (
+              <CardImage
+                recipe={recipe}
+                key={recipe.idMeal}
+                handleFavoriteClick={handleFavoriteClick}
+                favorites={favorites}
+                filter={filter}
+              />
+            ))}
           </div>
         )}
       </div>
     </div>
   );
 }
-
-
-
-
-
-
-

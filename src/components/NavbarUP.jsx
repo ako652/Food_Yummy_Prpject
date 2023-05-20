@@ -1,7 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import logo from "../assets/chef.png";
-export default function NavbarUP() {
+import Badge from "@mui/material/Badge";
+export default function NavbarUP({number}) {
   return (
     <div className="flex justify-between m-4">
       <div className="flex">
@@ -14,7 +15,12 @@ export default function NavbarUP() {
             <Link to="/">Home</Link>
           </li>
           <li>
-            <Link to="/Favorite">Favorite</Link>
+            <Link to="/Favorite">
+              
+              <Badge badgeContent={number}  >
+               Favorite
+              </Badge>
+            </Link>
           </li>
           <li>
             <Link to="/Recipe">Recipe</Link>

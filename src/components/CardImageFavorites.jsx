@@ -1,4 +1,4 @@
-import React , {useState}from "react";
+import React, { useState } from "react";
 import { styled } from "@mui/material/styles";
 import Card from "@mui/material/Card";
 import CardHeader from "@mui/material/CardHeader";
@@ -26,13 +26,15 @@ const ExpandMore = styled((props) => {
   }),
 }));
 
-export default function RecipeReviewCard({handleFavoriteClick, favorites, filter, recipe, }) {
+export default function RecipeReviewCard({
+ 
+  recipe
+}) {
   const [expanded, setExpanded] = useState(false);
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
- 
 
   return (
     <Card sx={{ maxWidth: 345 }}>
@@ -48,7 +50,6 @@ export default function RecipeReviewCard({handleFavoriteClick, favorites, filter
           </IconButton>
         }
         title={recipe.strMeal}
-        
       />
       <CardMedia
         component="img"
@@ -62,15 +63,8 @@ export default function RecipeReviewCard({handleFavoriteClick, favorites, filter
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
-        <IconButton 
-          aria-label="add to favorites"
-          onClick={() => handleFavoriteClick(recipe)}
-        >
-          {favorites.includes(recipe)  ? (
-            <FavoriteIcon color="success" />
-          ) : (
-            <FavoriteIcon />
-          )}
+        <IconButton aria-label="add to favorites">
+          <FavoriteIcon color="success" />
         </IconButton>
         <IconButton aria-label="share">
           <ShareIcon />
@@ -93,3 +87,4 @@ export default function RecipeReviewCard({handleFavoriteClick, favorites, filter
     </Card>
   );
 }
+
