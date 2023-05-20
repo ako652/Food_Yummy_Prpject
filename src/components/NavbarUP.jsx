@@ -11,21 +11,18 @@ export default function NavbarUP({number}) {
       </div>
       <div>
         <ul style={{ listStyle: "none" }} className="flex gap-4">
-          <li>
+          <li className="border border-slate-300 rounded-md hover:border-indigo-300 hover:bg-indigo-500 p-2">
             <Link to="/">Home</Link>
           </li>
-          <li>
+          <li className="border border-slate-300 rounded-md hover:border-indigo-300 hover:bg-indigo-500 p-2">
             <Link to="/Favorite">
-              
-              <Badge badgeContent={number}  >
-               Favorite
-              </Badge>
+              <Badge badgeContent={number}>Favorite</Badge>
             </Link>
           </li>
-          <li>
+          <li className="border border-slate-300 rounded-md hover:border-indigo-300 hover:bg-indigo-500 p-2">
             <Link to="/Recipe">Recipe</Link>
           </li>
-          <li>
+          <li className="border border-slate-300 rounded-md hover:border-indigo-300 hover:bg-indigo-500 p-2">
             <Link to="/Contact">Contact</Link>
           </li>
         </ul>

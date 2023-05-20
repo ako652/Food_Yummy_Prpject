@@ -15,6 +15,7 @@ import ShareIcon from "@mui/icons-material/Share";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 
+
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
   return <IconButton {...other} />;
@@ -48,7 +49,6 @@ export default function RecipeReviewCard({handleFavoriteClick, favorites, filter
           </IconButton>
         }
         title={recipe.strMeal}
-        
       />
       <CardMedia
         component="img"
@@ -62,12 +62,12 @@ export default function RecipeReviewCard({handleFavoriteClick, favorites, filter
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
-        <IconButton 
+        <IconButton
           aria-label="add to favorites"
           onClick={() => handleFavoriteClick(recipe)}
         >
-          {favorites.includes(recipe)  ? (
-            <FavoriteIcon color="success" />
+          {favorites.includes(recipe) ? (
+            <FavoriteIcon color="secondary" />
           ) : (
             <FavoriteIcon />
           )}

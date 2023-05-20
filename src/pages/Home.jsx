@@ -10,13 +10,13 @@ export default function Home() {
     <div>
       <div className="w-full h-96 BackgdImage ">
         <div className="w-full h-full grid content-center">
-          <p>healthy delicious recipes</p>
+          <p className="font-mono text-2xl">HEALTHY DELICIOUS RECIPES </p>
         </div>
       </div>
 
       <div>
         <div className="m-20">
-          <h1>popular food</h1>
+          <h1 className="font-mono text-2xl">popular food</h1>
           <p>
             we provides a variety of food and breavery recipes with high taste
             from chefs

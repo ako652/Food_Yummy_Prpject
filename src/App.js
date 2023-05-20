@@ -35,9 +35,9 @@ function App() {
   },[recipes,userInput])
 
   const handleFavoriteClick = (recipe) => {
-    if (favorites.includes(recipe) && recipes.includes(recipe)) {
+    if (favorites.includes(recipe) ) {
       const updatedFavorites = favorites.filter(
-        (fav) => fav.idMeal !== recipe.idMeal
+        (favorite) => favorite.idMeal !== recipe.idMeal
       );
        const updatedNumber = number - 1;
        setNumber(updatedNumber);
